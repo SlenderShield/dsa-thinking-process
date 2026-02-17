@@ -9,8 +9,8 @@
 
 ## PART I — THE UNIVERSAL SOLVER OS (Weeks 1-2)
 
-- [/] **Chapter 1**: The DSA Mindset
-- [ ] **Chapter 2**: The Universal Checklist
+- [x] **Chapter 1**: The DSA Mindset ✅
+- [/] **Chapter 2**: The Universal Checklist (coding exercise pending)
 - [ ] **Chapter 3**: Pattern Recognition System
 - [ ] **Chapter 4**: Complexity & Constraint Intuition
 
@@ -75,9 +75,9 @@
 
 ## 📈 Weekly Stats
 
-| Week | Chapter | Problems Solved | Speed Drill Accuracy | Status      |
-| ---- | ------- | --------------- | -------------------- | ----------- |
-| 1    | Ch 1-2  | 0               | -                    | In Progress |
+| Week | Chapter | Problems Solved | Speed Drill Accuracy  | Status      |
+| ---- | ------- | --------------- | --------------------- | ----------- |
+| 1    | Ch 1-2  | 2 drills        | Smell: 3.5/5, BF: 3/5 | In Progress |
 
 ---
 
@@ -85,7 +85,7 @@
 
 ### Week 1-2 Checkpoint
 
-- [ ] Can apply 5-step Universal Checklist to any problem
+- [/] Can apply 5-step Universal Checklist to any problem
 - [ ] Pattern identification in < 60 seconds (baseline)
 - [ ] Understand all 5 recognition questions
 
@@ -119,9 +119,13 @@
 
 ### Session 1 (2026-02-17)
 
-- Started Chapter 1: The DSA Mindset
--
+- Completed Chapter 1: The DSA Mindset
+- Learned: 3 core smells (recalculation, search, ordering)
+- Smell Test: 3.5/5 — missed topo sort trigger, confused two pointers with running state
+- Brute Force Drill: 3/5 — need to sharpen pairs vs subsets distinction
+- Started Chapter 2: The Universal Checklist (5-step system)
+- Completed first checklist application (longest subarray with sum ≤ K)
+- Java coding exercise pending: SlidingWindowLongestSubarray.java
+- **Random revision system activated** — pop quizzes from past topics
 
----
-
-**Next Session**: Continue Chapter 1 - The DSA Mindset Deep Dive
+**Next Session**: Complete Ch2 coding exercise + Pop quiz answers + Chapter 3
