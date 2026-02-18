@@ -3,16 +3,16 @@
 **Start Date**: 2026-02-17  
 **Target Completion**: 28 weeks (~2026-08-24)  
 **Current Week**: 1  
-**Current Chapter**: Chapter 1 - The DSA Mindset
+**Current Chapter**: Chapter 4 - Complexity & Constraint Intuition
 
 ---
 
 ## PART I — THE UNIVERSAL SOLVER OS (Weeks 1-2)
 
 - [x] **Chapter 1**: The DSA Mindset ✅
-- [/] **Chapter 2**: The Universal Checklist (coding exercise pending)
-- [ ] **Chapter 3**: Pattern Recognition System
-- [ ] **Chapter 4**: Complexity & Constraint Intuition
+- [x] **Chapter 2**: The Universal Checklist ✅
+- [x] **Chapter 3**: Pattern Recognition System ✅ (3.4/5 drill score)
+- [/] **Chapter 4**: Complexity & Constraint Intuition
 
 ---
 
