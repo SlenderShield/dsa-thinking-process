@@ -3,7 +3,7 @@
 **Start Date**: 2026-02-17  
 **Target Completion**: 28 weeks (~2026-08-24)  
 **Current Week**: 1  
-**Current Chapter**: Chapter 4 - Complexity & Constraint Intuition
+**Current Chapter**: Chapter 5 - Arrays & Strings
 
 ---
 
@@ -12,13 +12,13 @@
 - [x] **Chapter 1**: The DSA Mindset ✅
 - [x] **Chapter 2**: The Universal Checklist ✅
 - [x] **Chapter 3**: Pattern Recognition System ✅ (3.4/5 drill score)
-- [/] **Chapter 4**: Complexity & Constraint Intuition
+- [x] **Chapter 4**: Complexity & Constraint Intuition ✅
 
 ---
 
 ## PART II — CORE INTERVIEW WEAPONS (Weeks 3-6)
 
-- [ ] **Chapter 5**: Arrays & Strings (8-10 problems)
+- [/] **Chapter 5**: Arrays & Strings (8-10 problems)
 - [ ] **Chapter 6**: Sliding Window (12-15 problems)
 - [ ] **Chapter 7**: Two Pointers (12-15 problems)
 - [ ] **Chapter 8**: Hashmaps (10-12 problems)
