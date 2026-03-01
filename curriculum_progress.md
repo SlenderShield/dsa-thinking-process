@@ -2,8 +2,8 @@
 
 **Start Date**: 2026-02-17  
 **Target Completion**: 28 weeks (~2026-08-24)  
-**Current Week**: 1  
-**Current Chapter**: Chapter 5 - Arrays & Strings
+**Current Week**: 2  
+**Current Chapter**: Chapter 8 - Hashmaps
 
 ---
 
@@ -18,10 +18,10 @@
 
 ## PART II — CORE INTERVIEW WEAPONS (Weeks 3-6)
 
-- [/] **Chapter 5**: Arrays & Strings (8-10 problems)
-- [ ] **Chapter 6**: Sliding Window (12-15 problems)
-- [ ] **Chapter 7**: Two Pointers (12-15 problems)
-- [ ] **Chapter 8**: Hashmaps (10-12 problems)
+- [x] **Chapter 5**: Arrays & Strings (5 problems coded) ✅
+- [x] **Chapter 6**: Sliding Window (7 problems, 4/5 discrimination) ✅
+- [x] **Chapter 7**: Two Pointers (6 problems, 3/5 discrimination) ✅
+- [/] **Chapter 8**: Hashmaps (10-12 problems)
 - [ ] **Chapter 9**: Stacks & Monotonic Structures (12-15 problems)
 - [ ] **Chapter 10**: Binary Search - Answer Space (15-18 problems)
 
@@ -77,7 +77,7 @@
 
 | Week | Chapter | Problems Solved | Speed Drill Accuracy  | Status      |
 | ---- | ------- | --------------- | --------------------- | ----------- |
-| 1    | Ch 1-2  | 2 drills        | Smell: 3.5/5, BF: 3/5 | In Progress |
+| 1-2  | Ch 1-5  | 5 array probs   | Smell: 3.5/5, BF: 3/5 | In Progress |
 
 ---
 
@@ -128,4 +128,12 @@
 - Java coding exercise pending: SlidingWindowLongestSubarray.java
 - **Random revision system activated** — pop quizzes from past topics
 
-**Next Session**: Complete Ch2 coding exercise + Pop quiz answers + Chapter 3
+### Session 2 (2026-02-25)
+
+- Completed Chapter 3: Pattern Recognition System (Drill Score: 3.4/5)
+- Completed Chapter 4: Complexity & Constraint Intuition
+- Completed Chapter 5: Arrays & Strings (5 core patterns)
+- Coded 5 array problems in Java (Kadane's, Dutch Flag, Cyclic Sort, Prefix Sum, In-Place)
+- **Weakness identified**: Topological Sort ("dependencies" trigger) and Constraint table
+
+**Next Session**: Chapter 6 - Sliding Window Deep Dive
