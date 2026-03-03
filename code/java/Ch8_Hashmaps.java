@@ -12,14 +12,29 @@ public class Ch8_Hashmaps {
     // Problem 1: Two Sum (LeetCode 1)
     // Input: [2, 7, 11, 15], target = 9 -> Output: [0, 1]
     public static int[] twoSum(int[] nums, int target) {
-        // TODO: Complement lookup pattern
+        Map<Integer, Integer> calcMap = new HashMap<>();
+        int len = nums.length;
+        for (int idx = 0; idx < len; idx++) {
+
+            if (calcMap.containsKey(target - nums[idx])) {
+                return new int[] { calcMap.get(target - nums[idx]), idx };
+            }
+            calcMap.put(nums[idx], idx);
+        }
         return new int[] { -1, -1 };
     }
 
     // Problem 2: Contains Duplicate (LeetCode 217)
     // Input: [1, 2, 3, 1] -> Output: true
     public static boolean containsDuplicate(int[] nums) {
-        // TODO: HashSet existence check
+        Set<Integer> set = new HashSet<>();
+        int len = nums.length;
+        for (int idx = 0; idx < len; idx++) {
+            if (set.contains(nums[idx])) {
+                return true;
+            }
+            set.add(nums[idx]);
+        }
         return false;
     }
 
@@ -30,15 +45,39 @@ public class Ch8_Hashmaps {
     // Problem 3: First Unique Character (LeetCode 387)
     // Input: "leetcode" -> Output: 0
     public static int firstUniqChar(String s) {
-        // TODO: Frequency count, then scan for freq == 1
+        int[] characters = new int[26];
+        int len = s.length();
+        for (int idx = 0; idx < len; idx++) {
+            characters[s.charAt(idx) - 'a']++;
+        }
+        for (int idx = 0; idx < len; idx++) {
+            if (characters[s.charAt(idx) - 'a'] == 1)
+                return idx;
+        }
         return -1;
     }
 
     // Problem 4: Top K Frequent Elements (LeetCode 347)
     // Input: [1,1,1,2,2,3], k = 2 -> Output: [1, 2]
     public static int[] topKFrequent(int[] nums, int k) {
-        // TODO: Frequency map + sort by value (or use heap)
-        return new int[0];
+        PriorityQueue<Map.Entry<Integer, Integer>> queue = new PriorityQueue<>(
+                (a, b) -> Integer.compare(a.getValue(), b.getValue()));
+        Map<Integer, Integer> freq = new HashMap<>();
+        for (int num : nums) {
+            freq.put(num, freq.getOrDefault(num, 0) + 1);
+        }
+        for (Map.Entry<Integer, Integer> en : freq.entrySet()) {
+            queue.offer(en);
+            if (queue.size() > k) {
+                queue.poll();
+            }
+        }
+        int[] res = new int[k];
+        int i = 0;
+        while (!queue.isEmpty()) {
+            res[i++] = queue.poll().getKey();
+        }
+        return res;
     }
 
     // =====================================================
@@ -49,8 +88,28 @@ public class Ch8_Hashmaps {
     // Input: ["eat","tea","tan","ate","nat","bat"]
     // Output: [["eat","tea","ate"], ["tan","nat"], ["bat"]]
     public static List<List<String>> groupAnagrams(String[] strs) {
-        // TODO: Use sorted string as key, group into map
-        return new ArrayList<>();
+        List<List<String>> result = new ArrayList<>();
+        Map<String, List<String>> check = new HashMap<>();
+        for (String str : strs) {
+            String key = compare(str);
+            if (check.containsKey(key)) {
+                check.get(key).add(str);
+            } else {
+                check.put(key, new ArrayList<>(Arrays.asList(str)));
+            }
+        }
+        for (List<String> list : check.values()) {
+            result.add(list);
+        }
+        return result;
+    }
+
+    public static String compare(String check) {
+        int[] chars = new int[26];
+        for (char ch : check.toCharArray()) {
+            chars[ch - 'a']++;
+        }
+        return Arrays.toString(chars);
     }
 
     // =====================================================
@@ -61,9 +120,23 @@ public class Ch8_Hashmaps {
     // Input: [100, 4, 200, 1, 3, 2] -> Output: 4
     // Hint: HashSet + only count from sequence START (no predecessor)
     public static int longestConsecutive(int[] nums) {
-        // TODO: Put all in HashSet.
-        // For each num, if (num-1) NOT in set → it's a start → count forward.
-        return -1;
+        Set<Integer> consec = new HashSet<>();
+        for (int num : nums) {
+            consec.add(num);
+        }
+        int maxCount = 0;
+        for (int num : consec) {
+            if (!consec.contains(num - 1)) {
+                int count = 1;
+                int currNum = num;
+                while (consec.contains(currNum + 1)) {
+                    count++;
+                    currNum++;
+                }
+                maxCount = Math.max(maxCount, count);
+            }
+        }
+        return maxCount;
     }
 
     // =====================================================
@@ -71,19 +144,19 @@ public class Ch8_Hashmaps {
     // =====================================================
     /*
      * A: "Find two numbers in sorted array summing to target"
-     * HashMap? ___ Pattern: ___
+     * HashMap? No Pattern: Two pointer is better as it is sorted
      *
      * B: "Group words by their first letter"
-     * HashMap? ___ Pattern: ___
+     * HashMap? Yes Pattern: we have key as first letter
      *
      * C: "Find longest substring without repeating characters"
-     * HashMap? ___ Pattern: ___
+     * HashMap? No Pattern: sliding window can be used here
      *
      * D: "Check if two strings are anagrams"
-     * HashMap? ___ Pattern: ___
+     * HashMap? No Pattern: Freq map can be used as it is better approach
      *
      * E: "Find missing number in range [1, n]"
-     * HashMap? ___ Pattern: ___
+     * HashMap? No Pattern: Array with indexing
      */
 
     // -------------------------------------------------------

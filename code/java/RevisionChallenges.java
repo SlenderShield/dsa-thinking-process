@@ -20,8 +20,18 @@ public class RevisionChallenges {
     // Pattern: ___
     // =====================================================
     public static int subarraySum(int[] nums, int k) {
-        // TODO: Code it
-        return -1;
+        Map<Integer, Integer> res = new HashMap<>();
+        res.put(0, 1);
+        int sum = 0;
+        int result = 0;
+        for (int num : nums) {
+            sum += num;
+            res.put(sum, res.getOrDefault(sum, 0) + 1);
+            if (res.containsKey(sum - k)) {
+                result += res.get(sum - k);
+            }
+        }
+        return result;
     }
 
     // =====================================================
@@ -33,8 +43,21 @@ public class RevisionChallenges {
     // Can you do O(n)? Which two-pointer variant?
     // =====================================================
     public static int[] sortedSquares(int[] nums) {
-        // TODO: Code it
-        return new int[0];
+        int len = nums.length;
+        int left = 0, right = len - 1;
+        int[] res = new int[len--];
+        while (left <= right) {
+            int leftSqr = nums[left] * nums[left];
+            int rightSqr = nums[right] * nums[right];
+            if (leftSqr < rightSqr) {
+                res[len--] = rightSqr;
+                right--;
+            } else {
+                res[len--] = leftSqr;
+                left++;
+            }
+        }
+        return res;
     }
 
     // =====================================================
@@ -46,7 +69,7 @@ public class RevisionChallenges {
     // Hint: negative × negative = positive
     // =====================================================
     public static int maxProduct(int[] nums) {
-        // TODO: Code it
+        
         return -1;
     }
 
@@ -59,7 +82,7 @@ public class RevisionChallenges {
     // Which sliding window variant? Fixed or Variable?
     // =====================================================
     public static List<Integer> findAnagrams(String s, String p) {
-        // TODO: Code it
+        int[] freq = new int[26];
         return new ArrayList<>();
     }
 

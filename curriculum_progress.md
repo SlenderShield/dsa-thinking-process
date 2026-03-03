@@ -3,7 +3,7 @@
 **Start Date**: 2026-02-17  
 **Target Completion**: 28 weeks (~2026-08-24)  
 **Current Week**: 2  
-**Current Chapter**: Chapter 8 - Hashmaps
+**Current Chapter**: Chapter 9 - Stacks & Monotonic Structures
 
 ---
 
@@ -21,8 +21,8 @@
 - [x] **Chapter 5**: Arrays & Strings (5 problems coded) ✅
 - [x] **Chapter 6**: Sliding Window (7 problems, 4/5 discrimination) ✅
 - [x] **Chapter 7**: Two Pointers (6 problems, 3/5 discrimination) ✅
-- [/] **Chapter 8**: Hashmaps (10-12 problems)
-- [ ] **Chapter 9**: Stacks & Monotonic Structures (12-15 problems)
+- [x] **Chapter 8**: Hashmaps (6 problems, 4.9/5 code score) ✅
+- [/] **Chapter 9**: Stacks & Monotonic Structures (12-15 problems)
 - [ ] **Chapter 10**: Binary Search - Answer Space (15-18 problems)
 
 ---
