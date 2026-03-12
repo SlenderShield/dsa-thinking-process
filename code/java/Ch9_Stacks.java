@@ -12,8 +12,22 @@ public class Ch9_Stacks {
     // Problem 1: Valid Parentheses (LeetCode 20)
     // Input: "()[]{}" -> true, "(]" -> false, "([)]" -> false
     public static boolean isValid(String s) {
-        // TODO: Push openers, pop and match on closers
-        return false;
+        Stack<Character> openCharacters = new Stack<>();
+        Map<Character, Character> match = new HashMap<>();
+        match.put(')', '(');
+        match.put(']', '[');
+        match.put('}', '{');
+        for (char ch : s.toCharArray()) {
+            if (match.containsKey(ch)) {
+                if (openCharacters.isEmpty())
+                    return false;
+                if (!openCharacters.pop().equals(match.get(ch)))
+                    return false;
+            } else {
+                openCharacters.push(ch);
+            }
+        }
+        return openCharacters.isEmpty();
     }
 
     // Problem 2: Min Stack (LeetCode 155)
@@ -21,25 +35,33 @@ public class Ch9_Stacks {
     // Hint: Use a second stack to track the minimum at each level
     static class MinStack {
         // TODO: Define your data structures
-        // Deque<Integer> stack = ...
-        // Deque<Integer> minStack = ...
+        Deque<Integer> stack;
+        Deque<Integer> minStack;
+
+        public MinStack() {
+            stack = new ArrayDeque<>();
+            minStack = new ArrayDeque<>();
+        }
 
         public void push(int val) {
-            // TODO
+            stack.push(val);
+            if (minStack.isEmpty() || val <= minStack.peek()) {
+                minStack.push(val);
+            }
         }
 
         public void pop() {
-            // TODO
+            if (stack.pop().equals(minStack.peek())) {
+                minStack.pop();
+            }
         }
 
         public int top() {
-            // TODO
-            return -1;
+            return stack.peek();
         }
 
         public int getMin() {
-            // TODO
-            return -1;
+            return minStack.peek();
         }
     }
 
@@ -55,7 +77,16 @@ public class Ch9_Stacks {
     public static int[] dailyTemperatures(int[] temperatures) {
         // TODO: Monotonic decreasing stack (stores indices)
         // When you pop, distance = current_index - popped_index
-        return new int[0];
+        Stack<Integer> stack = new Stack<>();
+        int[] result = new int[temperatures.length];
+        for (int idx = 0; idx < temperatures.length; idx++) {
+
+            while (!stack.isEmpty() && temperatures[stack.peek()] < temperatures[idx]) {
+                result[stack.peek()] = idx - stack.pop();
+            }
+            stack.push(idx);
+        }
+        return result;
     }
 
     // Problem 4: Next Greater Element I (LeetCode 496)
@@ -65,7 +96,23 @@ public class Ch9_Stacks {
     public static int[] nextGreaterElement(int[] nums1, int[] nums2) {
         // TODO: Build nextGreater map from nums2 using monotonic stack
         // Then look up each nums1 element in the map
-        return new int[0];
+        int n = nums1.length;
+        Map<Integer, Integer> check = new HashMap<>();
+        int[] result = new int[n];
+        Arrays.fill(result, -1);
+        Deque<Integer> stack = new ArrayDeque<>(); // stores indices
+
+        for (int i = 0; i < n; i++) {
+            // Pop everything SMALLER than current (they found their next greater)
+            while (!stack.isEmpty() && nums2[stack.peek()] < nums2[i]) {
+                check.put(nums2[stack.pop()], nums2[i]);
+            }
+            stack.push(i);
+        }
+        for (int idx = 0; idx < nums1.length; idx++) {
+            result[idx] = check.getOrDefault(nums1[idx], -1);
+        }
+        return result;
     }
 
     // =====================================================
@@ -88,19 +135,19 @@ public class Ch9_Stacks {
     // =====================================================
     /*
      * A: "Check if string of brackets is balanced"
-     * Stack? ___ Pattern: ___
+     * Stack? Yes Pattern: check for every close if open exist
      *
      * B: "Find maximum element in sliding window of size K"
-     * Stack? ___ Pattern: ___
+     * Stack? No Pattern: normal condition
      *
      * C: "For each element, find nearest smaller to the left"
-     * Stack? ___ Pattern: ___
+     * Stack? Yes Pattern: monotonic
      *
      * D: "Evaluate postfix expression: 2 3 + 5 *"
-     * Stack? ___ Pattern: ___
+     * Stack? Yes Pattern: pop values on experssion
      *
      * E: "Find shortest path in grid"
-     * Stack? ___ Pattern: ___
+     * Stack? No Pattern: Graph
      */
 
     // -------------------------------------------------------
