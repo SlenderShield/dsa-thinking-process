@@ -33,10 +33,44 @@ public class Ch10_BinarySearch {
     // Input: [5,7,7,8,8,10], target=8 -> [3,4]
     // Use lowerBound (first >= target) and upperBound (last <= target)
     public static int[] searchRange(int[] nums, int target) {
-        // TODO: Find first occurrence (lowerBound)
-        // Find last occurrence (upperBound)
-        // Verify both actually equal target
-        return new int[] { -1, -1 };
+        int left = 0;
+        int right = nums.length;
+        int[] result = new int[] { -1, -1 };
+
+        // Find first occurrence (lower bound)
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+
+            if (nums[mid] < target) {
+                left = mid + 1;
+            } else {
+                right = mid;
+            }
+        }
+
+        // Target not found
+        if (left == nums.length || nums[left] != target) {
+            return result;
+        }
+
+        result[0] = left;
+
+        // Find last occurrence (upper bound)
+        right = nums.length;
+
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+
+            if (nums[mid] <= target) {
+                left = mid + 1;
+            } else {
+                right = mid;
+            }
+        }
+
+        result[1] = left - 1;
+
+        return result;
     }
 
     // =====================================================
@@ -50,6 +84,9 @@ public class Ch10_BinarySearch {
     public static int searchRotated(int[] nums, int target) {
         // TODO: At each mid, determine which half is sorted
         // Then check if target is in that sorted half
+
+        // Note: we need to check four condition i.e if and else and if and else in if
+        // and else
         return -1;
     }
 
@@ -58,7 +95,17 @@ public class Ch10_BinarySearch {
     // Compare mid with hi: if nums[mid] > nums[hi], min is in right half
     public static int findMin(int[] nums) {
         // TODO: Binary search, compare mid with hi
-        return -1;
+        int left = 0;
+        int right = nums.length - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] > nums[right]) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return nums[left];
     }
 
     // =====================================================
@@ -72,14 +119,32 @@ public class Ch10_BinarySearch {
     public static int minEatingSpeed(int[] piles, int h) {
         // TODO: Binary search on answer space [1, max(piles)]
         // Write helper: canFinish(piles, speed, h)
-        return -1;
+        int maxBanana = 0;
+        for (int pile : piles) {
+            maxBanana = Math.max(maxBanana, pile);
+        }
+        int left = 1;
+        int right = maxBanana;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (canFinish(piles, mid, h)) {
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
     }
 
     // Helper: Can Koko eat all bananas at given speed within h hours?
     private static boolean canFinish(int[] piles, int speed, int h) {
         // TODO: For each pile, hours needed = ceil(pile / speed)
         // Total hours <= h?
-        return false;
+        long totalTime = 0;
+        for (int pile : piles) {
+            totalTime += (pile + speed - 1) / speed;
+        }
+        return totalTime <= h;
     }
 
     // =====================================================
@@ -87,19 +152,20 @@ public class Ch10_BinarySearch {
     // =====================================================
     /*
      * A: "Find target in sorted array"
-     * BS? ___ Pattern: ___
+     * BS? Yes Pattern: Simple BS
      *
      * B: "Find peak element (greater than neighbors)"
-     * BS? ___ Pattern: ___
+     * BS? yes Pattern: check if right neighbor is low, you reached peak as it will
+     * be rotated
      *
      * C: "Minimum speed to arrive on time"
-     * BS? ___ Pattern: ___
+     * BS? Yes Pattern: BS space
      *
      * D: "Find K-th largest element"
-     * BS? ___ Pattern: ___
+     * BS? No Pattern: heap
      *
      * E: "Find square root of N (integer part)"
-     * BS? ___ Pattern: ___
+     * BS? Yes Pattern: Don't know(space or simple)
      */
 
     // -------------------------------------------------------

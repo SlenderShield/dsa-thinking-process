@@ -3,7 +3,7 @@
 **Start Date**: 2026-02-17  
 **Target Completion**: 28 weeks (~2026-08-24)  
 **Current Week**: 3  
-**Current Chapter**: Chapter 10 - Binary Search
+**Current Chapter**: Chapter 11 - Linked Lists
 
 ---
 
@@ -23,13 +23,13 @@
 - [x] **Chapter 7**: Two Pointers (6 problems, 3/5 discrimination) ✅
 - [x] **Chapter 8**: Hashmaps (6 problems, 4.9/5 code score) ✅
 - [x] **Chapter 9**: Stacks & Monotonic Structures (4 problems, 4.6/5) ✅
-- [/] **Chapter 10**: Binary Search - Answer Space (15-18 problems)
+- [x] **Chapter 10**: Binary Search - Answer Space (5 problems, 4.9/5) ✅
 
 ---
 
 ## PART III — RECURSION WORLDS (Weeks 7-10)
 
-- [ ] **Chapter 11**: Linked Lists (12-15 problems)
+- [/] **Chapter 11**: Linked Lists (12-15 problems)
 - [ ] **Chapter 12**: Trees (15-20 problems)
 - [ ] **Chapter 13**: Binary Search Trees (10-12 problems)
 - [ ] **Chapter 14**: Tries (8-10 problems)
